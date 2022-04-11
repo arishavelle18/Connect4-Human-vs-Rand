@@ -151,6 +151,8 @@ while not game_over:
                         label = myFont.render("Player 1 Won",1,RED)
                         screen.blit(label,(40,10))
                         game_over = True
+                    print_board(board)
+                    draw_board(board=board)
                 else:
                     turn = 0
                
@@ -163,6 +165,7 @@ while not game_over:
         turn = 0
 
         if is_valid_location(board=board,col=col):
+            pygame.time.wait(1000)
             row = get_next_open_row(board=board,col=col)
             drop_piece(board=board, row=row,col=col,piece=2)
             # check if player 2 won 
@@ -171,10 +174,10 @@ while not game_over:
                 label = myFont.render("Player 2 Won",1,GREEN)
                 screen.blit(label,(40,10))
                 game_over = True
+            print_board(board)
+            draw_board(board=board)
         else:
             turn = 1
-    print_board(board)
-    draw_board(board=board)
         # turn+= 1
         # turn%=2
     
